@@ -1,0 +1,34 @@
+.header{
+    background-color: white;
+    padding: 20px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.headerContainer{
+    width: 100%;
+    justify-content: space-between;
+    color: orangered;
+    display: flex;
+}
+.logo{
+    margin-left: 20px;
+    font: caption;
+    font-size: 24px;
+    color: orangered;
+}
+.headerButton{
+    margin-left: 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 4px;
+    background-color: blue;
+    height: 40px;
+    cursor: pointer;
+    color: white;
+    float: right;
+    margin-bottom: 20px;
+}
+.headerImgText{
+
+
+}
