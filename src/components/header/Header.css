@@ -1,34 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: caption;
+    font-size: 12px;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
+}
 .header{
     background-color: white;
-    padding: 20px 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 64px;
     overflow: hidden;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    padding-right: 100px;
+    padding-left: 80px;
 }
 .headerContainer{
     width: 100%;
     justify-content: space-between;
     color: orangered;
     display: flex;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 .logo{
-    margin-left: 20px;
+    margin-left: 5px;
     font: caption;
     font-size: 24px;
+    font-weight: 200;
     color: orangered;
+    width: 107;
+    height: 20;
+    fill: none;
 }
 .headerButton{
-    margin-left: 20px;
     border-radius: 6px;
-    font-weight: 600;
-    padding: 4px;
+    font-weight: bold;
     background-color: blue;
     height: 40px;
+    width: 120px;
     cursor: pointer;
     color: white;
-    float: right;
-    margin-bottom: 20px;
+    border: none;
+    
 }
 .headerImgText{
-
+    margin-right: 28px;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    justify-content: space-between;
+    display: flex;
 
 }

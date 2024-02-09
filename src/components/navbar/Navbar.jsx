@@ -1,4 +1,3 @@
-
 import "./Navbar.css"
 import { PiAirplaneTiltFill } from "react-icons/pi";
 import { BiBuildings } from "react-icons/bi";
@@ -14,32 +13,20 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineSwapHorizontalCircle } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
-import { useState } from "react";
+import React, { useState } from "react";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const date = ()=>{
-  const [openDate, setOpenDate] = useState(false)
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-  const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState({
-    Adult: 1,
-    Children: 0,
-    Infants: 0,
-  });
-}
+
 
 export const Navbar = () => {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div className="navbar">
       <div className="navContainer">
       <div className="navList">
 
-        <div className="navListItem">
+        <div id="navId" className="navListItem">
         <PiAirplaneTiltFill />
         <span>Flights</span> 
         </div>
@@ -69,7 +56,7 @@ export const Navbar = () => {
         </div>
         </div>
         <div className="desc">
-        <h1>Search flights</h1>
+        <h1 className="heading">Search flights</h1>
         <p>Enjoy hassle free bookings with Cleartrip</p>
         </div>
         <div className="middleBox">
@@ -98,12 +85,13 @@ export const Navbar = () => {
           <div className="navSearchItem">
           <MdFlightTakeoff />
           <input type="text" placeholder="Where from?" className="navIcon" />
-          <MdOutlineSwapHorizontalCircle />
+          <MdOutlineSwapHorizontalCircle /> 
           <MdFlightLand />
           <input type="text" placeholder="Where to?" className="navIcon" />
           </div>
           <div className="navSearchDate">
-            <button><SlCalender />date</button>
+           <div> <button><SlCalender /><DatePicker selected={startDate} onChange={(date)=>setStartDate(date)}
+            dateFormat="dd, MMMM yyyy" minDate={new Date()}/></button></div>
             <button>Return</button>
             <button className="searchBtn">Search flights</button>
           </div>
@@ -111,6 +99,6 @@ export const Navbar = () => {
         </div>
     </div>
     </div>
-  )
-}
+  );
+};
 export default Navbar
