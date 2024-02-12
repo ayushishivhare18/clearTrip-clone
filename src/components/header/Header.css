@@ -36,13 +36,14 @@
 .headerButton{
     border-radius: 6px;
     font-weight: bold;
-    background-color: blue;
+    background-color: rgb(26, 26, 234);
     height: 40px;
     width: 120px;
     cursor: pointer;
     color: white;
     border: none;
-    
+    font-size: 14px;
+    margin-top: 10px;
 }
 .headerImgText{
     margin-right: 28px;
