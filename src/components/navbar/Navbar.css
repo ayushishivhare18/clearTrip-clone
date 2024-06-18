@@ -24,7 +24,7 @@
     position: relative;
 }
 .navList{
-    gap: 20px;
+    gap: 40px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -33,10 +33,14 @@
 .navListItem{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
     height: 40px;
     text-decoration: none;
     font-weight: 500;
+    color: black;
+    font-size: 16px;
+    line-height: 20px;
+    
 
 }
 span{
@@ -141,26 +145,44 @@ p{
 }
 .navSearchItem{
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
     align-items: center;
     margin-bottom: 40px;
     margin-top: 20px;
+    position: relative;
 }
 .holding1,.holding2{
     height: 40px;
     border-radius: 8px;
     border: 1px solid lightgray;
     background-color: white;
-    padding: 30px 150px;
+    padding: 25px 140px;
     margin: 5px;
     position: relative;
+    gap: none;
 }
-.holding1::after,
-.holding2::before{
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 100%;
+.holding2{
+    margin-left: -45px;
+}
+.middleIcon{
+    position: absolute;
+    left: 46%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+.navIcon{
+    border: none;
+    font-size: 16px;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -90px;
+    outline: none;
+
+}
+.icon{
+    position: absolute;
+    left: 15px;
+    top: 10px;
 }
 .navSearchDateTime{
     display: flex;
@@ -173,13 +195,23 @@ p{
     padding: 10px 20px;
     color: gray;
     border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+#date{
+    position: absolute;
+    top: 50px;
+}
+.datebutton{
+   outline: none;
+   border: none;
 }
 .searchBtn{
     font-size: 16px;
     font-weight: 600;
     background-color: rgb(255, 123, 0);
     color: white;
-    padding: 15px 30px;
+    padding: 15px 35px;
     border-radius: 5px;
     border: 1px solid orange;
 

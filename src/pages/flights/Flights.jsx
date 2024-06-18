@@ -1,9 +1,8 @@
 import React from 'react'
 
-const Flights = () => {
+export const Flights = () => {
   return (
     <div>Flights</div>
   )
 }
-
 export default Flights
