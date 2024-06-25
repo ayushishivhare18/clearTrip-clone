@@ -48,7 +48,7 @@ export default function FlightResult(){
     let count =0;
     
 
-    //toggle function option for filter
+    //toggle flight option for filter
     function airlineSelector(key){
         setTimeout(() => {
             setFilter((prev) => ({...prev, [key]: !filter[key]}));
@@ -282,7 +282,7 @@ export default function FlightResult(){
                                         </div>}
                                         <svg onClick={() =>{swapLocations(); buttonRotateAllFalse()}} width='16' height='14' data-testid='modify-swap' className='c-pointer'></svg>
                                         <input className='flightResultOut' value={`${flightResultOut.name}-${flightResultOut.fname}`} onClick={() => {buttonRotate("flightOut");}}/>
-                                        {rotateButton["flightOut"] && <div className='flightInData flightResultInData'>
+                                        {rotateButton["flightOut"] && <div className='flightInData flightResultOutData'>
                                         {objDropDownCity.map((item) =>{
                                             <div className='slide' onClick={() => {setFlightResultOut(prev =>({...prev, name: item.name, fname: item.fname})); buttonRotateAllFalse()}}>
                                                 <p>{item.name}</p>

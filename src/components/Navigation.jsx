@@ -5,6 +5,7 @@ import { useAuthContext } from './ContextAllData';
 import LoginSignup from '../smallComp/LoginSignup';
 import { faArrowDown, faUser, faHeadphones } from '@fortawesome/free-solid-svg-icons';
 import Footer from './Footer';
+import logo from './assets/download.png'
 
 export default function Navigation(){
     const {all, setAll, username} = useAuthContext();
@@ -37,6 +38,10 @@ export default function Navigation(){
                 <NavLink to='/'>
                     <svg width='107' height='24' viewBox='0 0 310 65' fill='none' color='#214497'></svg>
                 </NavLink>
+                <div className="headerImgText">
+                    <img src={logo} height={'20px'} width={'20px'}/>
+                     <span className="logo">cleartrip</span>
+                 </div>
                 {!tokenAvailibility && <button className='loginoutBtn' onClick={() => setLoginCheck(true)}>Log in / Sign up</button>}
                 {tokenAvailibility &&
                     <button className='profileBtn' onClick={(e) => { setProfileToggle(!profileToggle); } }>
@@ -69,17 +74,18 @@ export default function Navigation(){
                                 </div></>}
                     </button>}
             </nav>
-            <div className='marginBottomGlobal'>
+           <div className='flex marginBottom'>
             <nav className='navLeftside'>
                 <ul>
-                    <NavLink to='/'>
+                    <NavLink to='/'> </NavLink>
                         <NavLink to='/flights'>
                             <li className='flex'>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' className='stroke'></svg>
                                 <p>Flights</p>
                             </li>
                         </NavLink>
-                    </NavLink>
+                       
+                    
                     <NavLink to='/hotels'>
                         <li className='flex'>
                             <svg width='20px' height='20px' viewBox='0 0 24 24' fill='none' className='stroke'></svg>
@@ -96,8 +102,9 @@ export default function Navigation(){
                         }
                 </ul>
             </nav>
+            </div>
             <Outlet />
-        </div><Footer />
+        <Footer />
         </div></>
     )
 }

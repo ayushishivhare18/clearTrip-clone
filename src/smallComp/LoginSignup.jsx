@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAuthContext } from '../components/ContextAllData.jsx';
 import { baseAPI } from '../components/Constants';
 import "./LoginSignup.css";
+import CarousalThree from '../smallComp/CarousalThree';
 
 export default function LoginSignup({ setTokenAvailibility, checkLogin, formClose}){
     const [pagination, setPagination] = useState(true);
@@ -33,7 +34,7 @@ export default function LoginSignup({ setTokenAvailibility, checkLogin, formClos
                         name: `${signName}`,
                         email: `${signEmail}`,
                         password: `${signPassword}`,
-                        apptype: "bookingortals"
+                        appType: "bookingportals"
                     })
                 }
                 )).json();
@@ -73,16 +74,17 @@ export default function LoginSignup({ setTokenAvailibility, checkLogin, formClos
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        email: `${signEmail}`,
-                        password: `${signPassword}`,
-                        apptype: "bookingortals"
+                        email: `${LoginEmail}`,
+                        password: `${LoginPassword}`,
+                        appType: "bookingportals"
                     })
                 }
                 )).json();
-                if(response.status == "success"){
-                    localStorage.setItem("username", JSON.stringify(response.data.name));
-                    localStorage.setItem("token",JSON.stringify(response.token));
-                    setAll((prev) => ({...prev, ["token"]: response.token}));
+                if(response?.status == "success"){
+                    console.log("response",response);
+                    localStorage.setItem("username", JSON.stringify(response?.data?.name));
+                   localStorage.setItem("token",JSON.stringify(response?.token));
+                    setAll((prev) => ({...prev, ["token"]: response?.token}));
                     formClose(false);
                     setTokenAvailibility(true);    
                 }else{
@@ -111,7 +113,7 @@ export default function LoginSignup({ setTokenAvailibility, checkLogin, formClos
                     (<form className='loginForm flex' onSubmit={(e) => logInFunc(e)}>
                         <fieldset className='flex'>
                             <legend>Email</legend>
-                            <input type='email' id='email' name='email' value={LoginEmail} onChange={(e) => {setErrorLogin(false); setError(false); setLoginPassword(e.target.value)}}/><br/>
+                            <input type='email' id='email' name='email' value={LoginEmail} onChange={(e) => {setErrorLogin(false); setError(false); setLoginEmail(e.target.value)}}/><br/>
                         </fieldset>
                         <fieldset className='flex'>
                             <legend>Password</legend>
@@ -148,7 +150,7 @@ export default function LoginSignup({ setTokenAvailibility, checkLogin, formClos
                             {userErrorExist && <p className='errors'>User Already Exists</p>}
                             <button type='submit' className='submitSignup'>Sign Up</button>
                             <p className='backToLogin' onClick={() => {setError(false); setPagination(true)}}>Back to Login</p>
-                           
+                          
                         </form>
                     )
                     }
@@ -157,3 +159,4 @@ export default function LoginSignup({ setTokenAvailibility, checkLogin, formClos
             </div>
         )
 }
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzFhZDQ3NmMzNmYzNzkwMTM5NmM2NiIsImlhdCI6MTcxODcyNTk1OSwiZXhwIjoxNzUwMjYxOTU5fQ.-0YSjfDe7_F5L7lV0wZdsdTCQXP7wvv7o2a6dn13F10

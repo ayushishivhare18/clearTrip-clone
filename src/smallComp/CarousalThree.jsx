@@ -4,12 +4,14 @@ import { datathree } from "../components/Constants";
 
 function CarousalThree() {
     const [slideThree, setSlideThree] = useState(0);
+    let loop;
 
     useEffect(() =>{
-        clearInterval(loop);
-        const loop = setInterval(() =>{
+        
+        loop = setInterval(() =>{
             setSlideThree(s => (s+1)%2);
         },3000);
+        return () => clearInterval(loop);
     },[])
 
     return(
