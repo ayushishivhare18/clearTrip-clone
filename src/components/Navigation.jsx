@@ -3,7 +3,10 @@ import "./Navigation.css";
 import { NavLink, Outlet } from 'react-router-dom';
 import { useAuthContext } from './ContextAllData';
 import LoginSignup from '../smallComp/LoginSignup';
-import { faArrowDown, faUser, faHeadphones } from '@fortawesome/free-solid-svg-icons';
+import { MdFlight } from "react-icons/md";
+import { RiHotelLine } from "react-icons/ri";
+import { IoBagOutline } from "react-icons/io5";
+import Navbar from './navbar/Navbar';
 import Footer from './Footer';
 import logo from './assets/download.png'
 
@@ -39,14 +42,14 @@ export default function Navigation(){
                     <svg width='107' height='24' viewBox='0 0 310 65' fill='none' color='#214497'></svg>
                 </NavLink>
                 <div className="headerImgText">
-                    <img src={logo} height={'20px'} width={'20px'}/>
+                    <img src={logo} className="logoImage" height={'20px'} width={'20px'}/>
                      <span className="logo">cleartrip</span>
                  </div>
                 {!tokenAvailibility && <button className='loginoutBtn' onClick={() => setLoginCheck(true)}>Log in / Sign up</button>}
                 {tokenAvailibility &&
                     <button className='profileBtn' onClick={(e) => { setProfileToggle(!profileToggle); } }>
                         <svg viewBox='0 0 14 14' height='16px' width='16px' className='c-inherit'><g fill='none' fillRule='evenodd'><react width='14' height='14' fill='#FFF' opacity='0'></react> <circle cx='7' cy='7' r='6.25' stroke='currentColor' strokeWidth='1.5'></circle> </g></svg>
-                        {JSON.parse(localStorage.getItem("username"))}
+                        {username || "User"}
                         {profileToggle &&
                             <>
                                 <div className='profilePop'>
@@ -81,6 +84,7 @@ export default function Navigation(){
                         <NavLink to='/flights'>
                             <li className='flex'>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' className='stroke'></svg>
+                                <MdFlight />
                                 <p>Flights</p>
                             </li>
                         </NavLink>
@@ -89,6 +93,7 @@ export default function Navigation(){
                     <NavLink to='/hotels'>
                         <li className='flex'>
                             <svg width='20px' height='20px' viewBox='0 0 24 24' fill='none' className='stroke'></svg>
+                            <RiHotelLine />
                             <p>Hotels</p>
                         </li>
                     </NavLink>
@@ -96,15 +101,18 @@ export default function Navigation(){
                         <NavLink to='/bookeddetails'>
                             <li className='flex'>
                                 <svg viewBox='0 0 14 14' height='16' width='16' className='c-neutral-400'></svg>
+                                <IoBagOutline />
                                 <p>My Trips</p>
                             </li>
                         </NavLink>
                         }
                 </ul>
             </nav>
+            <Navbar/>
             </div>
             <Outlet />
         <Footer />
-        </div></>
+        </div>
+        </>
     )
 }

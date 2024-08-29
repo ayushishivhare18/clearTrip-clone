@@ -1,0 +1,77 @@
+.footer{
+    width: 100vw;
+    background-color: rgba(119, 136, 153, 0.136);
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+.g40{
+    gap:40px;
+}
+.footerMainOuterDiv{
+    margin-top: 30px;
+    
+}
+.footerCardRight{
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+.footerMainDivInner{
+    width: 100%;
+    min-width: 500px;
+}
+.footerMainDiv{
+    width: 1150px;
+    height: 70px;
+}
+.footerCardRightUpper{
+    gap: 40px;
+    font-size: 14px;
+}
+.footercarsrightbottom{
+    justify-content: space-between;
+    width: 100%;
+    height: 30px;
+    font-size: 11px;
+}
+.logosocial{
+    font-size: 15px;
+    gap: 15px;
+}
+@media(max-width:1150px){
+    .footerMainDiv{
+        width: 100vw;
+    }
+}
+@media(max-width:700px){
+    .footerCardRightUpper{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footerCardRight{
+        gap: 15px;
+    }
+}
+@media(max-width:500px){
+    .footercarsrightbottom{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .wrap500{
+        text-wrap: wrap !important;
+        word-wrap: break-word !important;
+        width: 250px;
+    }
+   .footerCardRightUpper>div>div{
+    flex-direction: column;
+    gap: 10px;
+   }
+   .footer{
+    padding-top: 10px;
+    height: 160px;
+    padding-left: 10px;
+    }
+    .footerCardRight{
+        gap: 15px;
+    }
+}

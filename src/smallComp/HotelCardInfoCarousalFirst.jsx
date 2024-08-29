@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../smallComp/Carousal.css";
+import "./HotelCardInfoCarousalFirst.css";
 
 
 function HotelCardInfoCarousalFirst({data}){
@@ -19,7 +19,7 @@ function HotelCardInfoCarousalFirst({data}){
 
     return(
         <div className="HotelCardInfoCarousalFirst">
-            <div className="carousal">
+            <div className="carousal HotelsResultCardsCarousalMainDiv">
                 {
                     data.map((item,idx) => {
                         return <img src={item} alt="image" key={idx} className={slide == idx ? "slide" : "slide slide-hidden"}/>

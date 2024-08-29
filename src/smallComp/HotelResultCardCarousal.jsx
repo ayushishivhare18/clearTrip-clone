@@ -1,6 +1,6 @@
-import { useState } from "react";
-import "../smallComp/Carousal.css";
-
+import { useState, useEffect} from "react";
+//import "../smallComp/Carousal.css";
+import "./HotelResultCardCarousal.css"
 
 function HotelResultCardCarousal({data}){
     const [slide, setSlide] = useState(0);
@@ -21,12 +21,12 @@ function HotelResultCardCarousal({data}){
         
             <div className="carousal HotelResultCardCarousal">
                 {
-                    data.map((item,idx) => {
+                    data.map((item, idx) => {
                         return <img loading="lazy" src={item} alt="image" key={idx} className={slide == idx ? "slide" : "slide slide-hidden"}/>
                     })
                 }
                 <div className="flex">
-                    <svg className="arrow leftarror" onClick={(e) => {e.stopPropagation();prevSlide();}} width='6' height='10' viewBox="0 0 6 10" xmlns="http://www.w3.org/2000/svg" ></svg>
+                    <svg className="arrow leftarrow" onClick={(e) => {e.stopPropagation();prevSlide();}} width='6' height='10' viewBox="0 0 6 10" xmlns="http://www.w3.org/2000/svg" ></svg>
                     <span className="indicators">
                         {
                             data.map((_, idx) =>{

@@ -1,5 +1,5 @@
 import React from 'react';
-//import './Footer.css';
+import './Footer.css';
 import { footerlogo, footericon1, footericon2, footericon3, footericon4 } from './Constants';
 
 export default function Footer(){

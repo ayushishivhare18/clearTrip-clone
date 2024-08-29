@@ -1,0 +1,150 @@
+.hotelPayment .errorTravellerForm{
+    color: red;
+    letter-spacing: 0.5px;
+}
+.hotelPayment{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.hotelPayment nav{
+    width: 100%;
+    height: 70px;
+    border-bottom: 0.2px solid rgba(211, 211, 211, 0.545);
+}
+.hotelPayment nav svg{
+    margin-left: 150px;
+    scale: 1.2;
+    justify-content: flex-start;
+}
+.hotelPayment .hotelPaymentBodyDiv{
+    padding-top: 20px;
+    width: 100%;
+}
+.hotelPaymentBodyDiv button{
+    color: white;
+    background-color: orangered;
+    padding: 8px 30px;
+    border-radius: 6px;
+    align-self: flex-end;
+    margin-left: 20px;
+    font-size: 16px;
+    width: fit-content;
+}
+.hotelPaymentBodyDiv .rightDiv{
+    min-width: 200px !important;
+}
+.rightDiv{
+    
+}
+.hotelPayment .hotelPaymentLeftDiv{
+    width: 60%;
+}
+.hotelPayment .hotelPaymentRightDiv{
+    width: 25%;
+    align-self: flex-start;
+}
+.hotelPaymentCardDetails{
+    width: 100%;
+    margin-top: 30px;
+    text-wrap: wrap;
+    border: 0.2px solid rgba(211, 211, 211, 0.621);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.075);
+    border-radius: 12px;
+}
+.hotelPaymentStar{
+    display: inline-flex;
+    align-items: center;
+    color: gray;
+}
+.hotelpaymentCard-image{
+    height: 100px;
+    min-width: 120px;
+    border-radius: 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.hotelPaymentCardBorderDotted{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    border-bottom: 1px dashed lightgray;
+    margin-bottom: 10px;
+}
+.hotelPaymentparallel{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.hotelpaymentcardhalfballs1{
+    position: absolute;
+    height: 20px;
+    bottom: 0;
+    left: 0;
+    border-radius:0px 50px 50px 0px;
+    background-color: lightgray;
+    transform: translateY(50%);
+    width: 10px;
+}
+.hotelpaymentcardhalfballs2{
+    position: absolute;
+    height: 20px;
+    bottom: 0;
+    right: 0;
+    transform: translateY(50%);
+    border-radius: 50px 0px 0px 50px;
+    background-color: lightgray;
+    width: 10px;
+
+}
+.hotelPaymentCardBottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    padding: 20px;
+}
+.hotelPaymentCardBottom >div{
+    width: 50%;
+}
+.hotelPaymentCardBottom p{
+    color: gray;  
+}
+.hotelPaymentCardBottom span{
+    height: 60px;
+    border: 1px solid lightgray;
+}
+.hotelPaymentBottomLeftCard-1{
+    margin-left: 20px;
+}
+.hotelPaymentBottomLeftCard-1, .hotelPaymentBottomLeftCard-2, hotelPaymentBottomLeftCard-3{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+.hotelPaymentBottomLeftCard-2 p, .hotelPaymentBottomLeftCard-2 h3{
+    align-self: flex-end;
+}
+.hotelPaymentCardBottom .smallLine{
+    height: 30px !important;
+}
+.hotelPayment .flightInfo-travellerdiv> input{
+    border: 0.5px solid lightgray;
+    width: 500px;
+    outline: none;
+    height: 30px;
+    padding-left: 10px;
+}
+.flightinfo-billinginput{
+    padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}

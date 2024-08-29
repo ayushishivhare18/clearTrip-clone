@@ -2,52 +2,51 @@ import {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 
 import Navbar from "./components/navbar/Navbar";
-import Flights from "./pages/flights/Flights";
+import Navigation from './components/Navigation';
+
 import  Hotels  from "./pages/hotels/Hotels";
-import Bus from "./pages/bus/Bus";
-import Offers from "./pages/offers/Offers";
-import MyTrips from "./pages/myTrips/MyTrips";
-import Buisness from "./pages/buisness/Buisness";
+import FlightResult from "./components/FlightResult";
+import HotelResult from './components/HotelResult';
+import FlightInfo from './components/FlightInfo';
+import HotelCardInfo from './components/HotelCardInfo';
+import HotelPayment from './pages/hotels/HotelPayment';
+import ContextAllDataProvider from "./components/ContextAllData";
 import Carousal from "./smallComp/Carousal";
 import CarousalBottom from "./smallComp/CarousalBottom";
-import FlightResult from "./components/FlightResult";
-import ContextAllDataProvider from "./components/ContextAllData";
-import FlightInfo from './components/FlightInfo';
+import PaymentBooking from './components/PaymentBooking';
+import Errorpage from './components/ErrorPage';
 import BookedDetails from './components/BookedDetails';
-import Navigation from './components/Navigation';
+
 
 function App() {
   return (
-    
+    <div className='app'>
     <ContextAllDataProvider>
       <Router>
-        
     
-    <Navbar/>
-    <Carousal/>
-    <CarousalBottom/>
-  
-   
- 
     <Routes>
-    <Route path="/flights/:searchQuery" element={<FlightResult/>}/>
+    
       <Route path="/" element={<Navigation/>}/>
-      <Route path="/flights" element={<Navbar/>}/>
-      <Route path="/bookeddetails" element={<BookedDetails/>}/>
-      
-      <Route path="/" element={<Flights/>}/>
+      {/*<Route index element={<Navbar/>}/>*/}
+     <Route path="/flights" element={<Navbar/>}/>
       <Route path="/hotels" element={<Hotels/>}/>
-      <Route path="/bus" element={<Bus/>}/>
-      <Route path="/offers" element={<Offers/>}/>
-      <Route path="/myTrips" element={<MyTrips/>}/>
-      <Route path="/buisness" element={<Buisness/>}/>
+      <Route path="/bookeddetails" element={<BookedDetails/>}/>
+      <Route/>
+      <Route path="/flights/:results" element={<FlightResult/>}/>
+      <Route path="/hotels/:results" element={<HotelResult/>}/>
+      <Route path="/flights/results/:Info" element={<FlightInfo/>}/>
+      <Route path="/flights/results/flightInfo/:paymentBooking" element={<PaymentBooking/>}/>
+      <Route path="/hotels/results/:hotelInfo" element={<HotelCardInfo/>}/>
+      <Route path="/hotels/results/hotelInfo/:info" element={<HotelPayment/>}/>
+      <Route path="/hotels/results/hotelInfo/Info/:paymentBooking" element={<PaymentBooking/>}/>
+      <Route path="/under-maintainance" element={<Errorpage/>}/>
       
      {/* /* /*{ <Route path="/results" element={<FlightResult/>}/>}*/ }
-      <Route path="/flights/search/:Info" element={<FlightInfo/>}/>
 
     </Routes>
     </Router>
     </ContextAllDataProvider>
+    </div>
 
   )
 }

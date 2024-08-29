@@ -1,0 +1,346 @@
+:root {
+    --orange: #F77728;
+    --blue: #3366cc;
+    --hoverblue: #3366cc19;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+.flightInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-left: 10%;
+}
+.wholeNav{
+    width: 100%;
+    border-bottom: 0.5px solid lightgray;
+    height: 40px;
+    padding-top: 25px;
+}
+.flightInfo nav{
+    width: 1100px;
+    height: 100%;
+}
+.flightInfoBody{
+    width: 100%;
+}
+.flightInfovhBody{
+    width: 1100px;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    justify-content: space-between;
+}
+.flightInfo1Logo, .flightInfo2Logo, .flightInfo3Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid gray;
+}
+.flightInfo-cardDetails{
+    margin-top: 30px;
+    width: 100%;
+}
+.source-to-destination{
+    font-size: 15px;
+}
+.source-to-destination svg{
+    padding-top: 4px;
+}
+.flightInfoDate{
+    color: rgba(128, 128, 128, 0.82);
+    font-size: 16px;
+}
+.leftDiv{
+    width: 70%;  
+}
+.flightInfo-s-t-d{
+    margin-bottom: 20px;
+}
+.flightInfo-cardPhases img{
+    width: 35px;
+    height: 35px;
+}
+.flightInfo-cardPhases{
+    font-size: 12px;
+    color: gray;
+    font-weight: 300;
+    justify-content: space-between;
+}
+.flightInfo-cardPhase1st{
+    padding-top: 4px;
+    gap: 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.flightInfo-cardPhase3rd{
+    width: 88%;
+    color: black;
+    justify-content: space-between;
+}
+.rightdiv{
+    width: 300px;
+    border: 1px solid lightgray;
+    height: 300px;
+    border-radius: 6px;
+    gap: 20px;
+    padding: 20px;
+    flex-direction: column;
+}
+.rightdiv span{
+    color: green;
+}
+.flightInfo-cardPhases .flightInfo-source{
+    font-weight: 400;
+    color: gray;
+    font-size: 20px;
+}
+.flightInfo-cardPhases .clocksvg svg{
+    scale: 0.9;
+}
+.clocksvg{
+    gap: none;
+}
+.flightInfo-price{
+    border-bottom: 0.5px solid rgba(211, 211, 211, 0.523);
+    height: 30%;
+   
+}
+
+.rightdiv div{
+    justify-content: space-between;
+}
+.flightInfo-SecondPart, .flightInfo-ThirdPart{
+    margin-top: 50px;
+}
+.flightInfo2Logo .flightInfo3Logo{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid gray;
+}
+.flightInfo-SecondPart h1 p{
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: gray;
+    font-weight: 400;
+}
+.flightInfo-mobileInput{
+    border: none;
+}
+.flightInfo-contactDetails{
+    margin-top: 30px;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+}
+.flightInfo-contactDetails form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.flightInfo button{
+    width: 100px;
+   height: 35px;
+   border-radius: 3px;
+   align-self: flex-end;
+   box-shadow: 3px 3px 8px lightgray,inset 3px 3px 8px lightgray;
+   background-color: rgba(0, 72, 255, 0.242);
+}
+select{
+    margin-bottom: 500px;
+}
+.flightInfo-contactDetails label{
+    font-size: 20px;
+}
+.flightInfo-contactDetails button{
+    align-self: flex-start;
+    margin-top: 30px;
+    background-color: #F77728;
+    color: #FFFFFF;
+}
+.flightInfo-contactDetails input{
+    border: 1px solid black !important;
+    width: 300px;
+    height: 35px;
+    border-radius: 2px;
+    padding-left: 20px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+.errorcontact{
+    margin-top: -15px;
+    margin-bottom: -15px;
+    color: red;
+}
+.flightInfo-travellerDetails{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.country{
+    border: 0.5px solid lightgray;  
+    position: relative;
+    width: 270px;
+    height: 30px;
+    border-radius: 2px;
+}
+.country-input{
+    width: 250px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    z-index: -1;
+    background-color: white;
+}
+.country-downArrow .gender-downarrow{
+    transform: rotate(180deg) !important;
+    transition: 0.2s ease-in;
+}
+.country-upArrow .gender-uparrow{
+    transform: rotate(0deg) !important;
+    transition: 0.2s ease-in;
+}
+.country-pop{
+    width: 100%;
+    height: 300px;
+    top: 35px;
+    background-color: white;
+    left: -0.5px;
+    box-shadow: 2px 2px 10px lightgray;
+    position: absolute;
+    overflow-y: scroll;
+    border: 0.5px solid lightgray;
+    padding: 10px 0px;
+    border-radius: 2px;
+    flex-direction: column;
+}
+.country-pop::-webkit-scrollbar{
+    display: none;
+}
+.country-pop div{
+    width: 88%;
+    padding: 5px 10px;
+    border-radius: 3px;
+    flex-direction: column;
+}
+.country-pop div:hover{
+    background-color: rgba(211, 211, 211, 0.3);
+}
+.gender{
+    position: relative;
+    width:80px ;
+    border-radius: 3px;
+    border: 0.5px solid lightgray;
+    cursor: pointer;
+    display: flex;
+}
+.gender input{
+    width: 50px;
+    height: 30px;
+    z-index: -1;
+    background-color: white;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+}
+.gender-pop{
+    border-radius: 5px;
+    border: 0.5px solid lightgray;
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    box-shadow: 2px 2px 10px lightgray;
+    left: 0;
+    top: 100%;
+    padding: 3px;
+    width:100px;
+}
+.gender-pop p{
+    border-radius: 2px;
+    margin-top: 5px;
+    padding: 3px;
+}
+.gender-pop p:hover{
+    background-color: rgba(211, 211, 211, 0.281);
+}
+.flightInfo .fname, .flightInfo .lname{
+    border: 0.5px solid lightgray;
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+.state{
+    border: 0.5px solid lightgray;  
+    position: relative;
+    width: 270px;
+    height: 30px;
+    border-radius: 2px;
+}
+.state-input{
+    width: 250px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    z-index: -1;
+    background-color: white;
+}
+.state-downArrow{
+    transform: rotate(180deg) !important;
+    transition: 0.2s ease-in;
+}
+.state-upArrow{
+    transform: rotate(0deg) !important;
+    transition: 0.2s ease-in;
+}
+.state-pop{
+    width: 100%;
+    height: 300px;
+    top: 35px;
+    left: -0.5px;
+    box-shadow: 2px 2px 10px lightgray;
+    position: absolute;
+    overflow-y: scroll;
+    z-index: 1;
+    background-color: white;
+    border: 0.5px solid lightgray;
+    padding: 10px 0px;
+    border-radius: 2px;
+}
+.state-pop::-webkit-scrollbar{
+    display: none;
+}
+.state-pop div{
+    width: 88%;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.state-pop div:hover{
+    background-color: rgba(211, 211, 211, 0.3);
+}
+
+.flightInfo-travellerdiv{
+    width: 550px;
+    justify-content: space-between;
+}
+.flightInfo-buttonDiv{
+    width: 550px;
+    justify-content: end;
+}
+.flightInfo button:active{
+    scale: 0.9;
+}

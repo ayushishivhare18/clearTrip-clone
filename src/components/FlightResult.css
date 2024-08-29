@@ -19,7 +19,10 @@
     box-shadow: 1px 1px 10px rgba(211, 211, 211, 0.300);
     width: 100vw;
     height: 120px;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 150px;
 }
 .innerNav{
     width: 1150px;
@@ -36,8 +39,11 @@
 }
 .navUpperHome{
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: flex-end;
     align-items: center;
+    padding: 10px;
+    
 }
 .loginOutButton{
     background-color: var(--blue);
@@ -63,8 +69,11 @@
     color: #3366CC;
 }
 .flightResultWays{
+    display: flex;
+    cursor: pointer;
     position: relative;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     border: 0.2px solid rgba(211, 211, 211, 0.716);
     border-radius: 3px;
     font-weight: 400;
@@ -131,6 +140,7 @@
     border: 1px solid lightgray;
     outline: none;
 }
+
 .flightResultInData{
     z-index: 10;
     position: absolute;
@@ -141,6 +151,14 @@
     height: 300px;
     background-color: white;
     box-shadow: 5px 5px 18px lightgray,inset 1px 1px 18px rgba(211, 211, 211, 0.623);
+}
+.flightResultCardInner:hover{
+    cursor: pointer;
+}
+.slideee:hover{
+    cursor: pointer;
+    background-color: #3366CC;
+    color: white;
 }
 .flightResultOutData{
     z-index: 10;
@@ -160,6 +178,9 @@
     padding-left: 10px;
     border-radius: 3px;
     border: 0.5px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .flightResultDatesGoing{
     width: 80px !important;
@@ -185,6 +206,9 @@
 .travellerData{
     width: 110px;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .flightResultPeopleChooser{
     width: 250px;
@@ -209,12 +233,17 @@
     border-radius: 3px;
 }
 .mainPageFlightResult{
-    width: 82%;
-    padding: 10px 9%;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); ;
+   gap: 10px;
+   width: 80%;
+   margin-top: 40px;
+   
 }
 .leftSortingComponent{
-    width: 260px;
+    grid-column: 4 / 8;
     padding-bottom: 20px;
+    cursor: pointer;
 }
 .stops .wayPrice .airline .duration{
     justify-content: space-between;
@@ -222,4 +251,262 @@
 }
 .stops>p .wayPrice>p .airline>p .duration>p{
     width: 100%;
+}
+.filterPopUpStops .filterPopUpWayPrice .filterPopUpAirline .filterPopUpDuration{
+    padding: 10px 10px;
+    color: #00000097;
+}
+.filterPopUpStops label>div.filterPopUpWayPrice label>div .filterPopUpAirline label>div .filterPopUpDuration label>div{
+    gap: 10px;
+    width: 100%;
+    height: 35px;
+}
+.filterPopUpStops label .filterPopUpWayPrice label .filterPopUpAirline label .filterPopUpDuration label{
+    padding: 0px 5px;
+    border-radius: 3px;
+}
+.filterPopUpStops label:hover .filterPopUpWayPrice label:hover .filterPopUpAirline label:hover .filterPopUpDuration label:hover{
+    background-color: rgba(211, 211, 211, 0.43);
+    box-shadow: 5px 5px 10px lightgray;
+}
+.filterPopUpWayPrice input{
+    height: 1px;
+}
+.flightResultDataRender{
+    grid-column: 8 / 25;
+    
+}
+.filterPopUpWayPrice{
+    gap: 20px;
+    font-size: 14px;
+    color: black;
+}
+.filterPopUpWayPrice>div{
+    justify-content: space-between;
+    color: #00000090;
+}
+.filterPopUpDuration>div{
+    justify-content: space-between;
+}
+.multi-range- .bar{
+    height: 1px !important;
+    margin-top: 10px;
+}
+.multi-range-slider{
+    box-shadow: none !important;
+    border: none !important;
+}
+.multi-range-slider .bar-left{
+    padding: 0px !important;
+}
+.flightResultSortingNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    color: #00000090;
+    font-size: 13px;
+    background-color: rgba(211, 211, 211, 0.303);
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.flightResultSortingNav>div{
+    cursor: pointer;
+}
+
+.flightResultCardOuter{
+    border:1px solid rgba(211, 211, 211, 0.622);
+    border-radius: 4px;
+    box-shadow: 1px 1px 60px rgba(211, 211, 211, 0.622);
+    margin-bottom: 20px;
+    
+}
+.flightResultCardInner{
+    width: 80%;
+    justify-content: space-between;
+    padding:0px 10px;
+    display: flex;
+    
+    
+}
+.flightResultCardInner img{
+    height: 35px;
+    width: 35px;
+    border-radius: 6px;
+}
+.flightResultCardFullDetails{
+    border-radius: 4px;
+    height: 190px;
+    width: 90%;
+    border: 0.2px solid rgba(211, 211, 211, 0.74) ;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+.flightResultCardFullDetailsHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.2px solid rgba(211, 211, 211, 0.74) ;
+    border-radius: 4px 4px 0px 0px;
+    width: 96%;
+    height: 45px;
+    justify-content: space-between;
+    padding: 0px 18.5px;
+}
+.cardMentionDate{
+    color: gray;
+}
+.partiallyText{
+    font-size: 10px;
+    border: 0.2px solid rgba(128, 128, 128, 0.90);
+    color: rgba(128, 128, 128, 0.90);
+    border-radius: 50px;
+    padding: 0px 5px;
+}
+.flightDetails{
+    color: var(--blue);
+    font-size: 14px;
+    cursor: pointer;
+}
+.flightBookButton{
+    height: 40px;
+    width: 120px;
+    background-color: #ff4f17;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid b;
+    color: white;
+}
+.flightResultCardHeader{
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+.flightResultDepartureTime, .flightResultArrivalTime, .flightPrice{
+    padding-top: 35px;
+    margin-bottom: 15px;
+}
+.flightResultDuration{
+    padding-top: 25px;
+    margin-bottom: 15px;
+}
+.flightBookButton{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: 600;
+   line-height: 14px;
+   margin-top: 20px;
+   
+}
+
+.flightDurationAndStopSeprator{
+    border-bottom: 2px solid rgba(0, 0, 0, 0.473);
+    width: 60px;
+}
+.flightDurationAndStopSeprator div{
+    border: 1px solid rgb(247, 119, 40);
+    border-radius: 50%;
+    background-color: white;
+    width: 4px;
+    height: 4px;
+    margin-bottom: -4px;
+}
+.flightResultCardHeader .flightName{
+    font-size: 13px;
+}
+.flightResultCardHeader .flightID{
+    font-size: 10px;
+}
+.errorMessage{
+    width: 100%;
+    height: 500px;
+    color: gray;
+}
+.innerErrorMsg{
+    width: 500px;
+    height: 200px;
+    word-spacing: 5px;
+    letter-spacing: 1px;
+}
+.iconerrormsg{
+    width: 30px;
+    height: 30px;
+}
+.countVisibility{
+    display: none;
+}
+.activeSortingNavColor{
+    color: var(--blue);
+}
+.flightResultStops{
+    font-size: 13px;
+    color: gray;
+}
+.flightResultDuration{
+    font-size: 13px;
+    color: gray;
+}
+.flightResult-cardInnerDetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    height: 144px;
+}
+.flightResult-cardInnerDetails p{
+    font-size: 12px;
+    color: rgba(128, 128, 128, 0.778);
+}
+.flightResult-cardInnerDetails span{
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.707)0;
+}
+.flightResult-cardInnerDetails img{
+    height: 35px;
+    width: 35px;
+}
+
+@media(max-width:1100px){
+    .downNav{
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    .navFlightResult{
+        height: 140px;
+        padding-bottom: 10px;
+    }
+    .downNav>div{
+        gap: 40px;
+        justify-content: center;
+    }
+}
+@media(max-width:800px){
+    .flightResultMain::-webkit-scrollbar{
+        display: none;
+    }
+    .flightResultMain{
+        height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    .mainPageFlightResult{
+        flex-direction: column;
+        width: 93%;
+        padding: 10px 10px;
+    }
+    .leftSortingComponent{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .downNav{
+        width: 100%;
+    }
 }

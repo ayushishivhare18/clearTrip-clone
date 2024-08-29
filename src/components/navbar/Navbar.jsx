@@ -4,8 +4,11 @@ import "./Navbar.css"
 import { CalendarMonth } from "../../smallComp/icons";
 import Calendar from 'react-calendar';
 import { objDropDownCity, objColor, objFares, months, daysOfWeek } from "../Constants";
-import Carousal from "../../smallComp/Carousal";
-import CarousalBottom from '../../smallComp/CarousalBottom';
+import CarousalHotelUp from '../../smallComp/CarousalHotelUp';
+import CarousalHotelBottom from '../../smallComp/CarousalHotelBottom';
+import { FaArrowRight } from "react-icons/fa6";
+import { MdArrowDropDown } from "react-icons/md";
+import { IoPersonOutline } from "react-icons/io5";
 
 
 import { PiAirplaneTiltFill } from "react-icons/pi";
@@ -19,7 +22,6 @@ import { MdFlightTakeoff } from "react-icons/md";
 import { MdFlightLand } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineSwapHorizontalCircle } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import { GoArrowSwitch } from "react-icons/go";
@@ -160,8 +162,8 @@ export const Navbar = () => {
           <div className="dropdownItem flex-a"> 
           <div className="wayDefine flex-1a" onClick={() => {setRotateButtonOneWay(!rotateButtonOneWay); setRotateButtonPeople(false)}}>
             {ways == "one" ?
-            (<p className='flex-1a'>&nbsp;One way&nbsp;&nbsp;</p>):  
-            (<p className='flex-1a'>&nbsp;Round trip&nbsp;&nbsp;</p>)
+            (<p className='flex-1a'><FaArrowRight />&nbsp;One way&nbsp;&nbsp;<MdArrowDropDown /></p>):  
+            (<p className='flex-1a'>&nbsp;Round trip&nbsp;&nbsp;<MdArrowDropDown /></p>)
           }
           <svg width='14' height='9' fill="currentColor" className={`t-all ml-3 ${rotateButtonOneWay ? "rotateButtonzero" : "rotateButtonOneNinty"}`} style={{ color: "rgb(153, 153, 153)", transform: "rotate(-180deg)" }}></svg>
           {rotateButtonOneWay && 
@@ -179,7 +181,7 @@ export const Navbar = () => {
           </div>
           <div className="peoplePop">
             <div className="peopleForTrip flex-1a" onClick={() => {setRotateButtonPeople(!rotateButtonPeople); setRotateButtonOneWay(false)}}>
-            <p>{`${adult} Adult, `}{children > 0 ? `${children} Child, ` : ""}{infant > 0 ? `${infant} Infant, ` : ""}{(classFlight == "First" || classFlight == "Bussiness") ? `${classFlight} className` : classFlight == "Premium" ? `${classFlight} economy` : classFlight}</p>
+            <p><IoPersonOutline />{`${adult} Adult, `}{children > 0 ? `${children} Child, ` : ""}{infant > 0 ? `${infant} Infant, ` : ""}{(classFlight == "First" || classFlight == "Bussiness") ? `${classFlight} className` : classFlight == "Premium" ? `${classFlight} economy` : classFlight}</p>
             &nbsp;&nbsp;<svg width="14" height="9" fill="currentColor" className={`t-all ml-3 ${rotateButtonPeople ? "rotateButtonzero" : "rotateButtonOneNinty"}`} style={{ color: "rgb(153, 153, 153)", transform: "rotate(-180deg)" }}><g fill="none" fillRule="evenodd"></g></svg>
             </div>
             {rotateButtonPeople && 
@@ -251,8 +253,8 @@ export const Navbar = () => {
                 <input type="text" placeholder="Where from?"  value={flightIn} onClick={(e) => {e.preventDefault();
                   setFlightInOutPop({}); setFlightInOutPop({["in"] : !flightInOutPop["in"]}) }} onChange={(e) => {setFlightIn(e.target.value)}} />
                 {flightInOutPop["in"] == true && <div className="flightInData flex-a flex-c">
-                  {objDropDownCity.map((item) =>(
-                    <div className="slider flex-1a" onClick={() => {setFlightIn(`${item.name} - ${item.fname}`); setFlightInData(item); setFlightInOutPop({})}}>
+                  {objDropDownCity.map((item, index) =>(
+                    <div key={index} className="slider flex-1a" onClick={() => {setFlightIn(`${item.name} - ${item.fname}`); setFlightInData(item); setFlightInOutPop({})}}>
                       <p>{item.name}</p>
                       <h4>{item.fname}{item.lname}</h4>
                     </div>
@@ -268,7 +270,7 @@ export const Navbar = () => {
                 <input type="text" placeholder="Where to?"  value={flightOut} onClick={(e) => {setFlightInOutPop({}); setFlightInOutPop({["out"] : !flightInOutPop["out"]}) }} onChange={(e) => {setFlightOut(e.target.value)}} />
                 {flightInOutPop["out"] == true && <div className="flightInData flex-a flex-c">
                   {objDropDownCity.map((item) =>(
-                    <div className="slider flex-1a" onClick={() => {setFlightOut(`${item.name} - ${item.fname}`); setFlightOutData(item); setFlightInOutPop({})}}>
+                    <div key={item.name} className="slider flex-1a" onClick={() => {setFlightOut(`${item.name} - ${item.fname}`); setFlightOutData(item); setFlightInOutPop({})}}>
                       <p>{item.name}</p>
                       <h4>{item.fname}{item.lname}</h4>
                     </div>
@@ -301,12 +303,12 @@ export const Navbar = () => {
         </div>
       </div>
       <div className="asideBarFlightPage">
-        <Carousal className="flightPageRightTop"/>
+        <CarousalHotelUp className="flightPageRightTop"/>
         <div className="more-offers">
           <p>More offers</p>
           <Link to="/under-maintainance"><div>View all</div></Link>
         </div>
-        
+        <CarousalHotelBottom/>
       </div>
      
     </div>

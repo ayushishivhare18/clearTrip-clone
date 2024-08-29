@@ -1,0 +1,40 @@
+.HotelResultCardCarousal{
+    width: 100%;
+    position: relative;
+    left: 50px;
+}
+.HotelResultCardCarousal .indicator-inactive{
+    scale: 0.7;
+}
+.HotelResultCardCarousal .indicator-active{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    scale: 1.6;
+}
+.HotelResultCardCarousal .leftarrow{
+    position: absolute;
+    top: -80px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 6px 7px 6px 5px;
+    left: 0px;
+    opacity: 0;
+    transition: all 0.15s ease-in;
+}
+.HotelResultCardCarousal:hover .leftarrow{
+    opacity: 1;
+}
+.HotelResultCardCarousal .rightarrow{
+    padding: 6px 5px 6px 7px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -80px;
+    right: 0px;
+    opacity: 0;
+    transition: all 0.15s ease-in; 
+}
+.HotelResultCardCarousal:hover .rightarrow{
+    opacity: 1;
+}

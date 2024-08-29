@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import {CarousalThree} from './CarousalThree.jsx'
 import { useAuthContext } from '../components/ContextAllData.jsx';
 import { baseAPI } from '../components/Constants';
 import "./LoginSignup.css";
@@ -82,9 +81,9 @@ export default function LoginSignup({ setTokenAvailibility, checkLogin, formClos
                 )).json();
                 if(response?.status == "success"){
                     console.log("response",response);
-                    localStorage.setItem("username", JSON.stringify(response?.data?.name));
-                   localStorage.setItem("token",JSON.stringify(response?.token));
-                    setAll((prev) => ({...prev, ["token"]: response?.token}));
+                    localStorage.setItem("username", JSON.stringify(response.data.name));
+                   localStorage.setItem("token",JSON.stringify(response.token));
+                    setAll((prev) => ({...prev, ["token"]: response.token}));
                     formClose(false);
                     setTokenAvailibility(true);    
                 }else{
@@ -110,19 +109,19 @@ export default function LoginSignup({ setTokenAvailibility, checkLogin, formClos
                             <svg onClick={() => { formClose(false); setTimeout(() => {checkLogin(); },3000);}} width="22" height="22" viewBox="0 0 24 24" fill="none" className=" c-pointer c-neutral-900"><path  stroke="#1A1A1A" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                         </div>
                         {pagination ?
-                    (<form className='loginForm flex' onSubmit={(e) => logInFunc(e)}>
-                        <fieldset className='flex'>
+                    (<form className='loginForm flex-1a' onSubmit={(e) => logInFunc(e)}>
+                        <fieldset className='flex-1a'>
                             <legend>Email</legend>
                             <input type='email' id='email' name='email' value={LoginEmail} onChange={(e) => {setErrorLogin(false); setError(false); setLoginEmail(e.target.value)}}/><br/>
                         </fieldset>
-                        <fieldset className='flex'>
+                        <fieldset className='flex-1a'>
                             <legend>Password</legend>
                             <input type='password' id='password' name='password' value={LoginPassword} onChange={(e) => {setErrorLogin(false); setError(false); setLoginPassword(e.target.value)}}/><br/>
                         </fieldset>
                         {errorLogin && <p className='errorLogin'>Incorrect EmailId or Password</p>}
                         {error && <p className='error'>Email or Password is Missing</p>}
                         <button type='submit' className='submitLogin'>Login</button>
-                        <p className='gotoSignup' onClick={() => {setError(false); setPagination(false)}}SignUp></p>
+                        <p className='gotoSignup' onClick={() => {setError(false); setPagination(false)}}>SignUp</p>
                     </form>) :
                     (
                         <form className='formSignUp' onSubmit={(e) =>signUpFunc(e)}>

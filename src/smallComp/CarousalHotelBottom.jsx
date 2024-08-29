@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { datatwo } from "../components/Constants";
 import { Link } from "react-router-dom";
@@ -17,10 +17,10 @@ function CarousalHotelBottom(){
         }
     }
     useEffect(() => {
-        clearInterval(loop);
         const loop = setInterval(() =>{
             setSlidetwo((s) => (s+1) % 7);
         }, 8000);
+        return () => clearInterval(loop);
     },[]);
     return(
         <div className="carousaltwo flex">

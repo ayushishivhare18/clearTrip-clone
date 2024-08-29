@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'raect';
+import React, {useState, useRef} from 'react';
 import { NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import "../components/PaymentBooking.css";
 import { constructFrom } from 'date-fns';
@@ -35,7 +35,7 @@ export default function PaymentBooking(){
     };
 
     //popup manage
-    function pop(key){
+    function popp(key){
         setPop({});
         setPop((prev) =>({...prev, [key]: true}));
     };
@@ -137,8 +137,8 @@ export default function PaymentBooking(){
                     <h2>Pay to complete your booking</h2>
                     <div className='paymentBookingCard'>
                         <div className='paymentCardDiv1'>
-                            <div className={`selectorCardPayment ${pop["UPI"] ? "colorSelectorPayment" : ""}`} onClick={() =>pop("UPI")}>UPI</div>
-                            <div className={`selectorCardPayment ${pop["Debit"] ? "colorSelectorPayment" : ""}`} onClick={() =>pop("Debit")}>Debit/Credit card</div>
+                            <div className={`selectorCardPayment ${pop["UPI"] ? "colorSelectorPayment" : ""}`} onClick={() =>popp("UPI")}>UPI</div>
+                            <div className={`selectorCardPayment ${pop["Debit"] ? "colorSelectorPayment" : ""}`} onClick={() =>popp("Debit")}>Debit/Credit card</div>
                         </div>
                         {pop["UPI"] && 
                         <><div className='paymentCardDiv1result'>

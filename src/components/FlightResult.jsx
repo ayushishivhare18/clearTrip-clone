@@ -8,6 +8,8 @@ import MultiRangeSlider from 'multi-range-slider-react';
 import {CiCircleInfo} from 'react-icons/ci'
 import Footer from './Footer';
 import { objDropDownCity, days, months, logofinder, airlineNamefinder, flightsresultsStatefun, baseAPI } from './Constants';
+import { TbSwitchHorizontal } from "react-icons/tb";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 export default function FlightResult(){
     const navigate = useNavigate();
@@ -18,11 +20,11 @@ export default function FlightResult(){
     let daysOfWeek = searchParams.get("daysofweek");
     const dateObject = new Date(daysOfWeek);
 
-    const {filter, setFilter} = flightsresultsStatefun();
+    const {filter, setfilter} = flightsresultsStatefun();
     const {all, setAll} = useAuthContext();
     const [toggleCardFullDetails, setToggleCardFullDetails] = useState({});
-    const {rotateButton, setRotateButton} = flightsresultsStatefun();
-    const {filterPopup, setFilterPopup} = flightsresultsStatefun();
+    const {rotateButton, setrotateButton} = flightsresultsStatefun();
+    const {filterPopup, setfilterPopup} = flightsresultsStatefun();
     const [flightResultSortingNav, setFlightResultSortingNav] = useState({});
     const [pageLoader, setPageLoader] = useState(false);
     const [flightResultIn, setFlightResultIn] = useState({name:"", fname:""});
@@ -51,25 +53,27 @@ export default function FlightResult(){
     //toggle flight option for filter
     function airlineSelector(key){
         setTimeout(() => {
-            setFilter((prev) => ({...prev, [key]: !filter[key]}));
-        },1000);
+            setfilter((prev) => ({...prev, [key]: !filter[key]}));
+        },10);
     }
 
     //toggle flights stops option for filter
     function airlineSelectorWithValue(key, value){
         setTimeout(() =>{
         if(filter[key] == value){
-            setFilter((prev) => ({...prev, [key]: null}));
+            setfilter((prev) => ({...prev, [key]: null}));
         }else{
-            setFilter((prev) => ({...prev, [key]: value}));
+            setfilter((prev) => ({...prev, [key]: value}));
         }
     },1000);
     }
 
     //flight More information popup
-    function toggleCardDetails(val){
-        setToggleCardFullDetails({})
-        setToggleCardFullDetails( {[val]: !toggleCardFullDetails});
+    const toggleCardDetails = (index) =>{
+        setToggleCardFullDetails((prev)=> ({
+            ...prev,
+            [index]: !prev[index],
+        }));
     }
 
     //swap flights
@@ -118,14 +122,16 @@ export default function FlightResult(){
     }
 
     //rotate button wrt popup
-    function buttonRotate(key){
-        setRotateButton({});
-        setRotateButton((prev)=> ({...prev, [key]: !rotateButton[key]}));
-    }
+    const buttonRotate = (key) => {
+    setrotateButton(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
 
     //popup filter hide & show
     function filterButtonRotate(key){
-        setFilterPopup((prev) => ({...prev, [key]: !filterPopup[key]}));
+        setfilterPopup((prev) => ({...prev, [key]: !filterPopup[key]}));
     }
 
     //token availibility check
@@ -140,9 +146,11 @@ export default function FlightResult(){
     },[]);
 
     //popup adjustment menubar
-    function buttonRotateAllFalse(){
-        setRotateButton((prev) =>({prev:false}));
-    }
+    const buttonRotateAllFalse = () => {
+    setrotateButton({
+      ways: false
+    });
+  };
 
     //while logout remove token
     function finishToken(){
@@ -178,10 +186,15 @@ export default function FlightResult(){
         checkLogin();
     },[]);
 
-    const abcd = checkLoginOrSignup=()=>{
-        
-        console.log("checkLoginOrSignup");
-    }
+    const handleInputChangeIn = (e) => {
+        const [name, fname] = e.target.value.split('-');
+        setFlightResultIn({ name, fname });
+      };
+    
+      const handleInputChangeOut = (e) => {
+        const [name, fname] = e.target.value.split('-');
+        setFlightResultOut({ name, fname });
+      };
 
     //fetch data main API
     const fetchDataForFlightsMountingPhase = useMemo(async ()=>{
@@ -223,7 +236,7 @@ export default function FlightResult(){
                             </div>
                             <div className='upperRightIcons'>
                                 <nav className='navUpperHome'>
-                                    {!tokenAvailibility && <button className='loginOutButton' onClick={checkLoginOrSignup}>Log in/Sign up</button>}
+                                    {!tokenAvailibility && <button className='loginOutButton' onClick={() =>setLoginCheck(true)}>Log in/Sign up</button>}
                                     {tokenAvailibility && <button className='profileButton' onClick={(e) => {setProfileToggle(!profileToggle)}}>
                                         <svg viewBox="0 0 14 14" height="16px" width="16px" className="c-inherit"><g fill="none" fillRule='evenodd'><react width="14" height="14" fill="#FFF" opacity="0"></react> <circle cx="7" cy="7" r="6.25" stroke="currentColor" strokeWidth="1.5"></circle><path fill="currentColor" transform="matrix(-1 0 0 1 10 3)"></path><path fill="currentColor" ></path><circle cx="7" cy="7" r="7.75" stroke="#FFF" strokeWidth="1.5"></circle></g></svg>
                                         {JSON.parse(localStorage.getItem("username"))}
@@ -260,43 +273,43 @@ export default function FlightResult(){
                                     <p>{ways == "one" ? "One way" : "Round trip"}</p>
                                     <svg width="14" height="9" fill='currentColor' className={`t-all ml-3 ${rotateButton["ways"] ? "rotateButtonZero" : "rotateButtonOneNinty"}`} style={{color: "rgb(153,153,153)", transform: "rotate(-180deg)"}}><g fill='none' fillRule='evenodd'><path stroke='#FFF' strokeWidth="0.5" fill='currentColor'></path> </g></svg>
                                     {rotateButton["ways"] && <div className='flightResultWaysPop'>
-                                        <p onClick={() => {setWays("one");}}>
+                                        <div onClick={() => {setWays("one");}}>
                                             {ways == "one" && <svg width="24" height="24" viewBox='0 0 24 24' fill='none' ></svg>}
-                                            <p className='wayChooserPtext'>&nbsp;&nbsp; One Way</p>
-                                        </p>
-                                        <p onClick={() => {setWays("two");}}>
+                                            <span className='wayChooserPtext'>&nbsp;&nbsp; One Way</span>
+                                        </div>
+                                        <div onClick={() => {setWays("two");}}>
                                             {ways == "two" && <svg width="24" height="24" viewBox='0 0 24 24' fill='none' ></svg>}
-                                            <p className='wayChooserPtext'>&nbsp;&nbsp; Round trip</p>
-                                        </p>
+                                            <span className='wayChooserPtext'>&nbsp;&nbsp; Round trip</span>
+                                        </div>
                                         </div>}
                                 </div>
                                 <div className='flightResultInOut'>
                                     <input className='flightResultIn' value={`${flightResultIn.name}-${flightResultIn.fname}`} onClick={() =>{buttonRotate("flightIn");}}/>
                                     {rotateButton["flightIn"] && <div className='flightInData flightResultInData'>
-                                        {objDropDownCity.map((item) =>{
-                                            <div className='slide' onClick={() => {setFlightResultIn(prev =>({...prev, name: item.name, fname: item.fname})); buttonRotateAllFalse()}}>
+                                        {objDropDownCity.map((item, index) =>(
+                                            <div key={index} className='slideee' onClick={() => {setFlightResultIn(prev =>({...prev, name: item.name, fname: item.fname})); buttonRotateAllFalse()}}>
                                                 <p>{item.name}</p>
                                                 <p>{item.fname} {item.lname}</p>
                                             </div>
-                                        })}
+                                        ))}
                                         </div>}
-                                        <svg onClick={() =>{swapLocations(); buttonRotateAllFalse()}} width='16' height='14' data-testid='modify-swap' className='c-pointer'></svg>
+                                        <svg onClick={() =>{swapLocations(); buttonRotateAllFalse()}} width='16' height='14' data-testid='modify-swap' className='c-pointer'><TbSwitchHorizontal /></svg>
                                         <input className='flightResultOut' value={`${flightResultOut.name}-${flightResultOut.fname}`} onClick={() => {buttonRotate("flightOut");}}/>
                                         {rotateButton["flightOut"] && <div className='flightInData flightResultOutData'>
-                                        {objDropDownCity.map((item) =>{
-                                            <div className='slide' onClick={() => {setFlightResultOut(prev =>({...prev, name: item.name, fname: item.fname})); buttonRotateAllFalse()}}>
+                                        {objDropDownCity.map((item, index) =>(
+                                            <div key={index} className='slideee' onClick={() => {setFlightResultOut(prev =>({...prev, name: item.name, fname: item.fname})); buttonRotateAllFalse()}}>
                                                 <p>{item.name}</p>
                                                 <p>{item.fname} {item.lname}</p>
                                             </div>
-                                        })}
+                                        ))}
                                         </div>   
                                             }
                                 </div>
                             </div>
-                            <div>
+                            <div className='flex g5'>
                                 <div className='flightResultLeftDatePicker' onClick={() => {buttonRotate("datego")}}> 
                                     <div className='datesGoing flightResultDatesGoing'>
-                                        {`${flightResultDayGo}, ${flightResultMonthGo}, ${flightResultDateGo}`}
+                                        {`${flightResultDayGo}, ${flightResultMonthGo} ${flightResultDateGo}`}
                                     </div>
                                     {rotateButton["datego"] && <Calendar minDate={new Date()} onChange={(date) => {setFlightResultDateGo(date.getDate()); setCalenderDate(date); setFlightResultDayGo(days[date.getDay()]); setFlightResultMontheGo(months[date.getMonth()]);}} value={flightResultDateGo} className='calenderForGoing flightResultCalenderGoing'/>}
                                 </div>
@@ -342,7 +355,7 @@ export default function FlightResult(){
                                     </div>
                                     }
                                 </div>
-                                <button className='flightResultSubmitMain' onClick={() => {buttonRotate("submit");forwardRoute();}}>Submit</button>
+                                <button className='flightResultSubmitMain' onClick={() => {buttonRotate("submit");forwardRoute();}}>Searh</button>
                             </div>
                         </div>
                     </div>
@@ -353,7 +366,7 @@ export default function FlightResult(){
             <div className='mainPageFlightResult'>
                 <div className='leftSortingComponent'>
                     <div className='stops flex' onClick={() => {filterButtonRotate("stops")}}>
-                        <p>Stops</p>
+                        <p>Stops</p><RiArrowDropDownLine />
                         <svg width='14' height='9' fill='currentColor' className={`t-all ml-3 ${filterPopup["stops"] ? "rotateButtonZero" : "rotateButtonOneNinty"}`} style={{color: "rgb(153, 153, 153)", transform: "rotate(-180deg)"}}><g fill='none' fillRule='evenodd'></g></svg>
                     </div>
                     {filterPopup["stops"] && 
@@ -364,8 +377,7 @@ export default function FlightResult(){
                     </div>
                     }
                     <div className='wayPrice' onClick={() => {filterButtonRotate("wayprice")}}>
-                        <p>One-way price</p>
-                        <svg width='18' height='9' fill='currentColor' className={`t-all ml-3 ${filterPopup["wayprice"] ? "rotateButtonZero" : "rotateButtonOneNinty"}`} style={{color: "rgb(153, 153, 153)", transform: "rotate(-180deg)"}}></svg>
+                        <p>One-way price</p><RiArrowDropDownLine />
                     </div>
                     {filterPopup["wayprice"] &&
                     <div className='filterPopUpWayPrice'>
@@ -375,8 +387,8 @@ export default function FlightResult(){
                     </div>
                     }
                     <div className='airline' onClick={() => {filterButtonRotate("airline")}}>
-                        <p>Airlines</p>
-                        <svg width='14' height='9' fill='currentColor' className={`t-all ml-3 ${filterPopup["airline"] ? "rotateButtonZero" : "rotateButtonOneNinty"}`} style={{color: "rgb(153, 153, 153)", transform: "rotate(-180deg)"}}><g fill='none' fillRule='evenodd'></g></svg>
+                        <p>Airlines</p><RiArrowDropDownLine />
+                        
                     </div>
                     {filterPopup["airline"] && 
                     <div className='filterPopUpAirline'>
@@ -390,8 +402,7 @@ export default function FlightResult(){
                     </div>
                     }
                     <div className='duration' onClick={() => {filterButtonRotate("duration")}}>
-                        <p>Trip duration</p>
-                        <svg width='14' height='9' fill='currentColor' className={`t-all ml-3 ${filterPopup["duration"] ? "rotateButtonZero" : "rotateButtonOneNinty"}`} style={{color: "rgb(153, 153, 153)", transform: "rotate(-180deg)"}}><g fill='none' fillRule='evenodd'></g></svg>
+                        <p>Trip duration</p><RiArrowDropDownLine />
                     </div>
                     {filterPopup["duration"] &&
                     <div className='filterPopUpDuration'>
@@ -422,8 +433,8 @@ export default function FlightResult(){
                                                 <p className='flightID'>{`${item.flightID[0]}${item.flightID[1]}-${item.flightID[item.flightID.length - 3] + item.flightID[item.flightID.length-2] + item.flightID[item.flightID.length-1]}`}</p>
                                             </div>
                                         </div>
-                                        <div className='flightDetails' onClick={() => {toggleCardDetails(`${index}`)}}>
-                                            {toggleCardFullDetails[`${index}`] ? "Hide Details" : "Flight Details"}
+                                        <div className='flightDetails' onClick={() => {toggleCardDetails(`${index}`) }}>
+                                            {toggleCardFullDetails[`${index}`] ? "Hide details" : "Flight details"}
                                         </div>
                                     </div>
                                     <div className='flightResultDepartureTime'>{item.departureTime}</div>
@@ -436,11 +447,14 @@ export default function FlightResult(){
                                 <div className='flightResultCardFullDetails'>
                                     <div className='flightResultCardFullDetailsHeader'>
                                         <div className='flex g20'>
-                                            {objDropDownCity.map((item) => (item.name == item.source ? `${item.fname.match(/^([^,]+)/)[1]}` : ""))} → {objDropDownCity.map((item) => (item.name == item.destination ? `${item.fname.match(/^([^,]+)/)[1]}` : ""))}
+                                        <div className='flex g20'>
+                                            {objDropDownCity.map((itemm) => (itemm.name == item.source ? `${itemm.fname.match(/^([^,]+)/)[1]}` : ""))} → {objDropDownCity.map((itemm) => (itemm.name == item.destination ? `${itemm.fname.match(/^([^,]+)/)[1]}` : ""))}
                                         </div>
                                         <div className='cardMentionDate'>
                                             {days[dateObject.getDay()]}, {dateObject.getDate()} {months[dateObject.getMonth()]}
                                         </div>
+                                    </div>
+                                    <div className='partiallyText'>PARTIALLY REFUNDABLE</div>
                                     </div>
                                     <div className='flightResult-cardInnerDetails'>
                                         <div className='phase1'>

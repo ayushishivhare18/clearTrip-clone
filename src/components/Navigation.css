@@ -10,6 +10,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     height: 100vh;
+  
 }
   
 .navFile::-webkit-scrollbar {
@@ -101,22 +102,44 @@
     height: 385px;
     background-color: var(--white);
 }
+.headerImgText{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.logoImage{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 0;
+}
+.logo{
+    margin-left: 8px;
+}
 
 .profileSelectorDiv{
     width: 100%;
     height: 80%;
     border-top: 0.2px solid rgba(211, 211, 211, 0.400);
     border-bottom: 0.2px solid rgba(211, 211, 211, 0.400);
+    display: flex;
 }
 
 .profileSelectorLeft{
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .profileSelectorRight{
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    
 }
 
 .profileSelector{
@@ -127,10 +150,13 @@
     margin-top: 3px;
     gap: 10px;
     margin-left: 5px;
+    transition: transform 0.3s ease;
+    transform-origin: center left; 
 }
 
 .profileSelector:hover{
     background-color: rgba(128, 128, 128, 0.1);
+    transform: scale(1.1);
 }
   
 .profileSelectorDiv h5{

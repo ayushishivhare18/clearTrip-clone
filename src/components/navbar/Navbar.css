@@ -102,6 +102,9 @@ button{
     height: 40px;
    flex-wrap: nowrap;
 }
+.desc{
+    gap: 10px;
+}
 .wayDefine{
     position: relative;
     height: 30px;
@@ -142,6 +145,7 @@ button{
     width: 170px;
     height: 100px;
     z-index: 100;
+    margin-left: 2px;
 }
 .wayChooser p{
     text-wrap: nowrap;
@@ -417,6 +421,8 @@ button{
     height: 550px;
 }
 .more-offers{
+    display: flex;
+    gap: 30px;
     justify-content: space-between;
     width: 100%;
     margin: 30px 0px;
@@ -440,9 +446,6 @@ button{
   
 .react-calendar__month-view__weekdays__weekday abbr {
     text-decoration: none;
-}
-.nextLine{
-    display: none;
 }
 
 @media(max-width:1290px) {

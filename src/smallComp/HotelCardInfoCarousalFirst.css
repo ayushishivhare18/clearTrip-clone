@@ -1,0 +1,40 @@
+.HotelCardInfoCarousalFirst .HotelsResultCardsCarousalMainDiv{
+    width: 100%;
+    height: 100%;
+}
+.HotelCardInfoCarousalFirst{
+    width: 100%;
+    height: 100%;
+}
+.HotelCardInfoCarousalFirst .HotelsResultCardsCarousalMainDiv .leftarror{
+    position: absolute;
+    top: -200px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 6px 7px 6px 5px;
+    left: 0px;
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
+}
+.HotelCardInfoCarousalFirst .HotelsResultCardsCarousalMainDiv:hover .leftarror{
+    opacity: 1;
+}
+.HotelCardInfoCarousalFirst .HotelsResultCardsCarousalMainDiv .leftarror:active{
+    scale: 1.2;
+}
+.HotelCardInfoCarousalFirst .HotelsResultCardsCarousalMainDiv .rightarrow{
+    padding: 6px 5px 6px 7px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -200px;
+    right: 0px;
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
+}
+.HotelCardInfoCarousalFirst .HotelsResultCardsCarousalMainDiv:hover .rightarrow{
+    opacity: 1;
+}
+.HotelCardInfoCarousalFirst .HotelCardInfoCarousalFirst .rightarrow:active{
+    scale: 1.2;
+}

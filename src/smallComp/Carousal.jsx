@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Carousal.css";
 import { data } from "../components/Constants";
-import { Link } from "react-router-dom";
+
 
 function Carousal(){
     const [slide, setSlide] = useState(0);
