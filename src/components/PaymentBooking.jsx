@@ -147,9 +147,10 @@ export default function PaymentBooking(){
                                         <input type='text' ref={upiInput} placeholder='Enter your UPI ID' onChange={() => { setUPIError(false); upiInput.current.style.outline = `none`; } } />
                                         {UPIError && <span>Please enter a valid UPI ID</span>}
                                         <p>Payment request will be sent to the phone no. linked to your UPI ID</p>
-                                    </div><div className='paymentCardDiv3'><p>QR</p></div>
+                                    </div><div className='paymentCardDiv3'><div className='lineVertical'></div><p>QR</p><div className='lineVertical'></div></div>
                                     <div className='paymentCardDiv4'>
                                         <h3>SCAN QR CODE</h3>
+                                        <div className='QRCodePayment'></div>
                                     </div>
                                     </div>
                                     </>

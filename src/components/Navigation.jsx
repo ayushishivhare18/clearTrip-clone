@@ -39,7 +39,7 @@ export default function Navigation(){
             {loginCheck && <LoginSignup setTokenAvailibility={setTokenAvailibility} checkLogin={checkLogin} formClose={setLoginCheck} />}
             <nav className='navUpperHome'>
                 <NavLink to='/'>
-                    <svg width='107' height='24' viewBox='0 0 310 65' fill='none' color='#214497'></svg>
+                    
                 </NavLink>
                 <div className="headerImgText">
                     <img src={logo} className="logoImage" height={'20px'} width={'20px'}/>

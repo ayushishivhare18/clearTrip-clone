@@ -118,7 +118,7 @@ export default function HotelPayment(){
 
     //calculate amount of rendering
     function calTotalAmount(){
-        const val = ((dataa.rooms[roomNo].constDetails.baseCost) * (adult+children));
+        const val = ((dataa.rooms[roomNo].constDetails?.baseCost) * (adult+children));
         const add = val + dataa.rooms[roomNo].price + dataa.rooms[roomNo].costDetails.taxeesAndFees;
         return add.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
