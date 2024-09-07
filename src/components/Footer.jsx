@@ -23,6 +23,8 @@ export default function Footer(){
                                     </div>                                    
                                 </div>                                
                             </div>
+                            </div>
+                            </div> 
                             <div className='flex footercarsrightbottom'>
                                 <div className='flex'>
                                     <span>©</span>
@@ -36,8 +38,8 @@ export default function Footer(){
                                     {footericon4}
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        
+                    
                 </div>
             </div>
         </div>

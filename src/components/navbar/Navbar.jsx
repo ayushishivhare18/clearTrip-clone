@@ -156,8 +156,10 @@ export const Navbar = () => {
       <div className="navContainer">
         <div className="desc">
           <h1 className="heading">Search flights</h1>
+        
           <p className='nextLine'>Enjoy hassle free bookings with Cleartrip</p>
         </div>
+
         <div className="middleBox flex flex-c">
           <div className="dropdownItem flex-a"> 
           <div className="wayDefine flex-1a" onClick={() => {setRotateButtonOneWay(!rotateButtonOneWay); setRotateButtonPeople(false)}}>
@@ -233,14 +235,14 @@ export const Navbar = () => {
           </div>
           
           <div className="navBtn">
-            <div className="faresl flex-1a">
+            
             <p className="Regular-fare" onClick={() => setFare("Regular-fare")} >Regular fare</p>
             <p className="Student-fare" onClick={() => setFare("Student-fare")} >Student fare</p>
-            </div>
-            <div className="faresr flex-1a">
+           
+            
             <p className="Senior-citizen-fare" onClick={() => setFare("Senior-citizen-fare")}>Senior citizen fare</p>
             <p className="Armed-forces-fare" onClick={() => setFare("Armed-forces-fare")}>Armed forces fare</p>
-            </div>
+           
             
           </div>
             <div className="inOutBtn flex">
@@ -249,7 +251,7 @@ export const Navbar = () => {
               <div className="flex-a">
                 <div className="ii1 flex-a">
              
-                <div className="icon"><MdFlightTakeoff size={25} color="gray" /> </div>
+                <div className="icon"><MdFlightTakeoff className='flihjtTakeoffon' size={25} color="gray" /> </div>
                 <input type="text" placeholder="Where from?"  value={flightIn} onClick={(e) => {e.preventDefault();
                   setFlightInOutPop({}); setFlightInOutPop({["in"] : !flightInOutPop["in"]}) }} onChange={(e) => {setFlightIn(e.target.value)}} />
                 {flightInOutPop["in"] == true && <div className="flightInData flex-a flex-c">
@@ -266,7 +268,7 @@ export const Navbar = () => {
               <MdOutlineSwapHorizontalCircle size={40} color="blue" className="middleIcon"  onClick={() => {reverseInput()}}/>
             <div className="i2 flex-a">
               <div className="ii2 flex-a">
-                <div className="icon"><MdFlightLand size={25} color="gray" /> </div>
+                <div className="icon"><MdFlightLand className='flihjtTakeoffon' size={25} color="gray" /> </div>
                 <input type="text" placeholder="Where to?"  value={flightOut} onClick={(e) => {setFlightInOutPop({}); setFlightInOutPop({["out"] : !flightInOutPop["out"]}) }} onChange={(e) => {setFlightOut(e.target.value)}} />
                 {flightInOutPop["out"] == true && <div className="flightInData flex-a flex-c">
                   {objDropDownCity.map((item) =>(
@@ -302,8 +304,8 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="asideBarFlightPage">
-        <CarousalHotelUp className="flightPageRightTop"/>
+      <div className="sideCarousalDiv">
+        <CarousalHotelUp/>
         <div className="more-offers">
           <p>More offers</p>
           <Link to="/under-maintainance"><div>View all</div></Link>

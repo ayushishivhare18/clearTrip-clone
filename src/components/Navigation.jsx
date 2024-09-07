@@ -7,6 +7,7 @@ import { MdFlight } from "react-icons/md";
 import { RiHotelLine } from "react-icons/ri";
 import { IoBagOutline } from "react-icons/io5";
 import Navbar from './navbar/Navbar';
+
 import Footer from './Footer';
 import logo from './assets/download.png'
 

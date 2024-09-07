@@ -36,9 +36,7 @@
   
   
 .navFile .navUpperHome {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
     padding: 17px 140px;
     border: 0.2px solid rgb(240, 240, 240);
     box-shadow: 0.5px 0.5px 8px rgb(240, 240, 240);
@@ -82,7 +80,9 @@
 }
 
 .navFile .profileBtn{
-    position: relative;
+    position: absolute;
+    right: 30px;
+    top: 0;
     padding: 11px 13px;
     gap: 10px;
     background-color: white;

@@ -19,16 +19,30 @@
 .footerMainDivInner{
     width: 100%;
     min-width: 500px;
+    display: flex;
+    
+    
 }
 .footerMainDiv{
     width: 1150px;
     height: 70px;
 }
 .footerCardRightUpper{
+    margin-left: 30px;
     gap: 40px;
     font-size: 14px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.footerCardRightUpper p{
+    white-space: nowrap;
+    margin-right: 10px;
 }
 .footercarsrightbottom{
+    margin-top: 30px;
+    margin-left: -600px;
+    position: relative;
     justify-content: space-between;
     width: 100%;
     height: 30px;
@@ -37,6 +51,7 @@
 .logosocial{
     font-size: 15px;
     gap: 15px;
+    
 }
 @media(max-width:1150px){
     .footerMainDiv{

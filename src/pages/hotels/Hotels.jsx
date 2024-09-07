@@ -7,6 +7,7 @@ import CarousalHotelBottom from '../../smallComp/CarousalHotelBottom';
 import { months, days, roomAndpeople, baseAPI } from '../../components/Constants';
 import { SlCalender } from "react-icons/sl";
 import debounce from 'lodash.debounce';
+import Navigation from '../../components/Navigation';
 
 
 export default function Hotels() {
@@ -188,7 +189,7 @@ export default function Hotels() {
             </div>
           </form>
         </div>
-        <div className='sideCarousalDiv'>
+        <div className='asideCarousalDiv'>
           <CarousalHotelUp />
           <div className='moreOffer'>
             <p>More offers</p>

@@ -11,8 +11,9 @@
     position: relative;
     margin: 30px 0px 0px 50px;
     justify-content: space-around;
-    width: 65.5%;
+    width: 80%;
     font-weight: 600;
+    
 }
 .hotelMainPage, .hotelMainHeading{
     font-weight: 600;
@@ -23,7 +24,7 @@
     color: rgba(0, 0, 0, 0.804);
 }
 .mainHotelFrontPage{
-    width: 100%;
+    width: 70%;
 }
 .hotelMainPageForm{
     justify-content: space-around;
@@ -162,6 +163,13 @@
 .buttonDisabled{
     color: black;
     background-color: rgba(128, 128, 128, 0.295);
+}
+.asideCarousalDiv{
+   position: absolute;
+   right: 0;
+   top: 0;
+   width: auto;
+  
 }
 @media(max-width:1290px){
     .hotelMainPage{

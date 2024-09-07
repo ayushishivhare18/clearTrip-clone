@@ -73,7 +73,7 @@ button{
     display: none;
 }
 .navContainer{
-    width: 69%;
+    width: 70%;
     height: 100vh;
 }
 .navContainer::-webkit-scrollbar{
@@ -234,10 +234,16 @@ button{
     border-radius: 50px;
     text-wrap: nowrap;
 }
-
 .navBtn{
+    display: flex;
     gap: 3%;
     width: 100%;
+}
+.navBtn p{
+    padding: 5px 10px;
+    border: 0.5px solid lightgray;
+    border-radius: 50px;
+    text-wrap: nowrap;
 }
 
 .faresl {
@@ -368,7 +374,7 @@ button{
     justify-content: space-between;
 }
 .DateandButtonInner .datePicker{
-    width: 60%;
+    width: 400px;
     height: 100%;
     justify-content: space-between;
     border: 0.2px solid lightgray;
@@ -376,11 +382,12 @@ button{
 }
 .DateandButtonInner>button{
     background-color: #F77728;
-    height: 100%;
+    height: 50px;
     width: 35%;
     color: var(--white);
     font-size: 15px;
     border-radius: 5px;
+    margin-left: auto;
 }
 .serachBtn{
     height: 200px;
@@ -393,6 +400,7 @@ button{
     position: relative;
     height: 100%;
     border: 0.2px solid rgba(0, 0, 0, 0.135);
+    height: 50px;
 }
 .leftDatePicker{
     justify-content: space-evenly;
@@ -447,7 +455,27 @@ button{
 .react-calendar__month-view__weekdays__weekday abbr {
     text-decoration: none;
 }
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 0;
+}
 
+@media(max-width:800px){
+    .sideCarousalDiv{
+        flex-direction: row;
+        gap: 20px;
+    }
+    .sideCarousalDiv .moreOffer{
+        display: none;
+    }
+}
+@media(max-width:550px){
+    .sideCarousalDiv{
+        flex-direction: column;
+    }
+}
 @media(max-width:1290px) {
     .flightpage {
       width: 80%;
@@ -545,10 +573,10 @@ button{
         width: 90%;
       }
       .DateandButtonInner .datePicker .leftDatePicker{
-        height: 40px;
+        height: 100px;
       }
       .DateandButtonInner .datePicker .rightDatePicker{
-        height: 40px;
+        height: 100px;
       }
       .navSearchItem .ii1{
         border: 1px solid lightgray;
